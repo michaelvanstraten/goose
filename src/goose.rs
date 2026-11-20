@@ -2523,6 +2523,18 @@ impl GooseUser {
         }
     }
 
+    pub fn transaction_detail(&self) -> TransactionDetail {
+        TransactionDetail {
+            scenario_index: self.scenarios_index,
+            scenario_name: self.scenario_name.clone(),
+            transaction_index: self.transaction_index,
+            transaction_name: self
+                .transaction_name
+                .clone()
+                .unwrap_or(TransactionName::default_value()),
+        }
+    }
+
     /// Tracks the time it takes for the current GooseUser to loop through all Transactions
     /// if Coordinated Omission Mitigation is enabled.
     pub(crate) async fn update_request_cadence(&mut self, thread_number: usize) {

@@ -849,7 +849,7 @@ fn http_method_str(method: GooseMethod) -> &'static str {
 }
 
 impl GooseRawRequest {
-    pub(crate) fn new(
+    pub fn new(
         method: GooseMethod,
         url: &str,
         headers: Vec<String>,
@@ -967,7 +967,7 @@ pub struct GooseRequestMetric {
 }
 
 impl GooseRequestMetric {
-    pub(crate) fn new(
+    pub fn new(
         raw: GooseRawRequest,
         transaction_detail: TransactionDetail,
         name: impl Into<Arc<str>>,
